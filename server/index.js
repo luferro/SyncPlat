@@ -10,7 +10,6 @@ const io = socketio(server);
 const users = {}, all_users_room = [];
 
 io.on('connection', socket => {
-  
   socket.on('new-user', (name, room) => {
     let existe = false;
 

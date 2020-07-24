@@ -318,11 +318,14 @@ a.bg-dark:hover{
 
 .player_all{
 	width: 100%;
-	height:60vh;
 }
 
-.player_all iframe, .player_all video{
-	margin-top: 5%;
+.player_all video, .player_all iframe{
+	margin-top: 2%;
+}
+
+.reactPlayer{
+	margin: 0 auto;
 }
 
 .show-wrapper {
@@ -349,14 +352,16 @@ a.bg-dark:hover{
 }
 
 .slider {
-	position: sticky;
+	position: relative;
 	text-align: center;
 	height: 100%;
-	top: 70%;
+	width: 100%;
+	top: -10%;
 	overflow: hidden;
 	background-color: #48d1cd; 
 	color: #fff;
 	transition: all 1s;
+	z-index: 99;
 }
   
 .slider.close {
@@ -635,7 +640,7 @@ a.bg-dark:hover{
 	#page-content nav div a{
 		position:absolute;
 		top: -5%;
-		left:70% !important;
+		left: 70% !important;
 	}
 
 	#wrapper.chat_aberto #sidebar_chat {

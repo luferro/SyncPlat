@@ -52,7 +52,7 @@ function Player() {
         if(url_to_watch.includes("youtube")) setSrc("Youtube");
         if(url_to_watch.includes("twitch")) setSrc("Twitch");
         if(url_to_watch.includes("vimeo")) setSrc("Vimeo");
-        if(url_to_watch.includes("m3u8")) setSrc("Outro");
+        if(url_to_watch.includes("m3u8") || url_to_watch.includes("mp4")) setSrc("Outro");
 
         setURL(url_to_watch);
     }
@@ -86,7 +86,7 @@ function Player() {
 
     const onSubmitForm = async e => {
         e.preventDefault();
-        let content = ["youtube", "twitch", "vimeo", "m3u8"]
+        let content = ["youtube", "twitch", "vimeo", "m3u8", "mp4"]
 
         let getUrl = document.getElementById('url_video').value;
 
@@ -96,7 +96,7 @@ function Player() {
         if(getUrl.includes("youtube")) setSrc("Youtube");
         if(getUrl.includes("twitch")) setSrc("Twitch");
         if(getUrl.includes("vimeo")) setSrc("Vimeo");
-        if(getUrl.includes("m3u8")) setSrc("Outro");
+        if(getUrl.includes("m3u8") || getUrl.includes("mp4")) setSrc("Outro");
 
         setURLtoWatch(getUrl);
 
@@ -117,16 +117,16 @@ function Player() {
                         ref={player}
                         url={url} 
                         controls={true} 
-                        playsinline={true}
                         muted={true}
-                        width="100%" 
-                        height="100%" 
+                        width="80%" 
+                        height="75vh"
                         onReady={onReady}
                         onPlay={onPlay}  
                         onPause={onPause}  
                         onSeek={e => onSeek(e)}
                         onBuffer={onBuffer}
                         playing={playing}
+                        className="reactPlayer"
                     />
                 </div>
             </div>
@@ -135,7 +135,7 @@ function Player() {
             </div>
             <div className="slider close">
                 <h3 onClick={SourcesToggle} className="mt-3 text-center" style={{color: "#fff", cursor: "pointer"}}>Available sources <i className="fa fa-times" aria-hidden="true"></i></h3>
-                <div className="grid-container mt-5">
+                <div className="grid-container">
                     <div className="card-video">
                         <img src="/imagens/youtube_logo.svg" alt="Logo Youtube"/>
                         <h4>Youtube</h4>    
